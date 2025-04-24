@@ -14,11 +14,11 @@
             <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
             <li>
                 {{-- <a href="#" class="block hover:text-blue-900 {{$active_menu == 'home' ? 'text-blue-900' : 'text-gray-900'}}" aria-current="page">Home</a> --}}
-                <a href="#" class="block hover:text-blue-900 text-gray-900" aria-current="page">Home</a>
+                <a href="{{route('home')}}" class="block hover:text-blue-900 text-gray-900" aria-current="page">Home</a>
             </li>
             <li>
                 {{-- <a href="#" class="block hover:text-blue-900 {{$active_menu == 'qr-generator' ? 'text-blue-900' : 'text-gray-900'}}">QR Generator</a> --}}
-                <a href="#" class="block hover:text-blue-900 text-gray-900">QR Generator</a>
+                <a href="{{route('qr-generator')}}" class="block hover:text-blue-900 text-gray-900">QR Generator</a>
             </li>
             </ul>
         </div>
