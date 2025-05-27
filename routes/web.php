@@ -13,6 +13,10 @@ Route::post('/generate-qr', [QrGeneratorController::class, 'generate'])->name('g
 
 Route::prefix('security-patroli')->group(function () {
     Route::get('/qr-generator', [SecurityPatroliQrGeneratorController::class, 'index'])->name('security-patroli-qr-generator');
-    Route::get('/generate-qr', [SecurityPatroliQrGeneratorController::class, 'generate'])->name('security-patroli-generate-qr');
+    Route::post('/generate-qr', [SecurityPatroliQrGeneratorController::class, 'generate'])->name('security-patroli-generate-qr');
     Route::get('/template', [SecurityPatroliQrGeneratorController::class, 'template'])->name('security-patroli-template');
+});
+
+Route::get('/html2canvas', function() {
+    return view('html2canvas');
 });

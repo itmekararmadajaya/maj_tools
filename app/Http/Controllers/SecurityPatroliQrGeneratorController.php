@@ -38,17 +38,20 @@ class SecurityPatroliQrGeneratorController extends Controller
 
     public function generate(Request $request){
         $validated = $request->validate([
-            'pos' => 'required|string'
+            'pos' => 'required|string',
+            'type' => 'required|string'
         ]);
 
         return redirect()->route('security-patroli-template', [
-            'pos' => $validated['pos']
+            'pos' => $validated['pos'],
+            'type' => $validated['type'],
         ]);
     }
 
     public function template(Request $request){
         $request->validate([
-            'pos' => 'required|string'
+            'pos' => 'required|string',
+            'type' => 'required|string'
         ]);
 
         $master_data_checkpoint = fopen('http://10.30.20.115/sapdata/checkpointsecurity.csv', 'r');
@@ -90,7 +93,8 @@ class SecurityPatroliQrGeneratorController extends Controller
         return view('security_patroli.qr_generator.template', [
             'pos' => $request->pos,
             'final_data' => $final_data,
-            'qr_code' => $result->getDataUri()
+            'qr_code' => $result->getDataUri(),
+            'type' => $request->type
         ]);
     }
 }

@@ -9,17 +9,28 @@
         </div>
     </div>
     <div class="p-5 bg-white w-full lg:w-1/2 mx-auto">
-        <form action="{{route('security-patroli-generate-qr')}}" method="get" target="_blank">
+        <form action="{{route('security-patroli-generate-qr')}}" method="POST">
             @csrf
             <div class="mb-3 w-full">
-                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
-                <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="pos">
+                <label for="pos" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an POS</label>
+                <select id="pos" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="pos">
                     <option value="">Pilih POS</option>
                     @foreach ($checkpoints as $item)
                     <option value="{{$item['value']}}">{{$item['description']}}</option>
                     @endforeach
                 </select>
                 @error('pos')
+                    <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3 w-full">
+                <label for="type" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an type</label>
+                <select id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="type">
+                    <option value="">Pilih Tipe</option>
+                    <option value="image">Image</option>
+                    <option value="pdf">PDF</option>
+                </select>
+                @error('type')
                     <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
                 @enderror
             </div>
