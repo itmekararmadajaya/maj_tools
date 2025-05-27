@@ -37,7 +37,8 @@
             right: 0;
             bottom: 0;
             left: 0;
-            background-image: url('/asset/logo/LOGO_SATPAM.png');
+            /* background-image: url('/asset/logo/LOGO_SATPAM.png'); */
+            background-image: url('/maj-tools/asset/logo/LOGO_SATPAM.png');
             background-repeat: no-repeat;
             background-position: center center; /* memastikan posisi di tengah */
             background-size: contain;
